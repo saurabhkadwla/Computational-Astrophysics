@@ -1,4 +1,4 @@
-# Computational Astrophysics with Runge-Kutta and Euler Methods
+# Computational Astrophysics with various numerical methods
 Welcome to the Computational Astrophysics repository, where we explore the fascinating world of astrophysical simulations using numerical methods like Runge-Kutta and Euler!
 
 ## About
