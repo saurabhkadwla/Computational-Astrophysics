@@ -57,6 +57,7 @@ Here, the derivative $f(t_{i+1}, y_{i+1})$ is evaluated at the unknown future ti
 Repeat these steps until you reach the desired endpoint or time.
 
 
+
 ## Runge-Kutta 2nd Order Method
 
 The Runge-Kutta 2nd order method is a numerical integration technique that provides improved accuracy compared to the Euler methods. It is particularly useful when solving ODEs with moderate accuracy requirements.
@@ -67,20 +68,22 @@ The Runge-Kutta 2nd order method approximates the solution of an ODE of the form
 
 $$\frac{dy}{dt} = f(t, y)$$
 
-with an initial condition $y(t_0) = y_0$. The method proceeds as follows:
+with an initial condition \(y(t_0) = y_0\). The method proceeds as follows:
 
-1. Choose a step size $h$, which determines the time intervals at which the solution will be approximated.
+1. Choose a step size \(h\), which determines the time intervals at which the solution will be approximated.
 
-2. Initialize the solution at the initial time $t_0$ as $y(t_0) = y_0$.
+2. Initialize the solution at the initial time \(t_0\) as \(y(t_0) = y_0\).
 
-3. For each time step $i$:
-   - Compute the derivative at the current time and position: $f_i = f(t_i, y_i)$.
-   - Update the intermediate solution using the Euler method: $y_{i+1/2} = y_i + \frac{h}{2}f_i$.
-   - Compute the derivative at the midpoint: $f_{i+1/2} = f(t_{i+1/2}, y_{i+1/2})$.
-   - Update the solution: $y_{i+1} = y_i + hf_{i+1/2}$.
-   - Update the time: $t_{i+1} = t_i + h$.
+3. For each time step \(i\):
+   - Compute the derivative at the current time and position: \(f_i = f(t_i, y_i)\).
+   - Compute \(k_1 = hf_i\), which represents the change in \(y\) based on the slope at the current point.
+   - Compute \(k_2 = hf(t_i + h, y_i + k_1)\), which represents the change in \(y\) based on the slope at a point ahead in time, calculated using \(k_1\).
+   - Update the solution: \(y_{i+1} = y_i + \frac{1}{2}(k_1 + k_2)\).
+   - Update the time: \(t_{i+1} = t_i + h\).
 
 Repeat these steps until you reach the desired endpoint or time.
+
+The Runge-Kutta 2nd order method provides a more accurate approximation than the Euler method by taking into account the slopes at two points within the time interval. However, it is less accurate than higher-order methods like the Runge-Kutta 4th order method.
 
 ## Runge-Kutta 4th Order Method
 
