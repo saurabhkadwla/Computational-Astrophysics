@@ -56,6 +56,56 @@ Here, the derivative $f(t_{i+1}, y_{i+1})$ is evaluated at the unknown future ti
 
 Repeat these steps until you reach the desired endpoint or time.
 
+
+## Runge-Kutta 2nd Order Method
+
+The Runge-Kutta 2nd order method is a numerical integration technique that provides improved accuracy compared to the Euler methods. It is particularly useful when solving ODEs with moderate accuracy requirements.
+
+### Methodology
+
+The Runge-Kutta 2nd order method approximates the solution of an ODE of the form:
+
+$$\frac{dy}{dt} = f(t, y)$$
+
+with an initial condition $y(t_0) = y_0$. The method proceeds as follows:
+
+1. Choose a step size $h$, which determines the time intervals at which the solution will be approximated.
+
+2. Initialize the solution at the initial time $t_0$ as $y(t_0) = y_0$.
+
+3. For each time step $i$:
+   - Compute the derivative at the current time and position: $f_i = f(t_i, y_i)$.
+   - Update the intermediate solution using the Euler method: $y_{i+1/2} = y_i + \frac{h}{2}f_i$.
+   - Compute the derivative at the midpoint: $f_{i+1/2} = f(t_{i+1/2}, y_{i+1/2})$.
+   - Update the solution: $y_{i+1} = y_i + hf_{i+1/2}$.
+   - Update the time: $t_{i+1} = t_i + h$.
+
+Repeat these steps until you reach the desired endpoint or time.
+
+## Runge-Kutta 4th Order Method
+
+The Runge-Kutta 4th order method is a widely used numerical integration technique known for its high accuracy. It is suitable for solving a wide range of ODEs, including those encountered in astrophysical simulations.
+
+### Methodology
+
+The Runge-Kutta 4th order method approximates the solution of an ODE in a more accurate and stable manner compared to lower-order methods. It proceeds as follows:
+
+1. Choose a step size $h$, which determines the time intervals at which the solution will be approximated.
+
+2. Initialize the solution at the initial time $t_0$ as $y(t_0) = y_0$.
+
+3. For each time step $i$:
+   - Compute four intermediate derivatives:
+     - $k_1 = hf(t_i, y_i)$
+     - $k_2 = hf(t_i + \frac{h}{2}, y_i + \frac{k_1}{2})$
+     - $k_3 = hf(t_i + \frac{h}{2}, y_i + \frac{k_2}{2})$
+     - $k_4 = hf(t_i + h, y_i + k_3)$
+   - Update the solution using the weighted sum of these derivatives: $y_{i+1} = y_i + \frac{1}{6}(k_1 + 2k_2 + 2k_3 + k_4)$.
+   - Update the time: $t_{i+1} = t_i + h$.
+
+Repeat these steps until you reach the desired endpoint or time.
+
+
 ## Usage
 
 In this repository, you'll find Python code examples and notebooks illustrating how to implement and use the Euler forward and backward methods for astrophysical simulations. Each example includes detailed explanations, equations, and visualization of the results.
